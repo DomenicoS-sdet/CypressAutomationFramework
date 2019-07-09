@@ -10,6 +10,8 @@ describe('PHPTRAVELS Test', function() {
     it('Search Button available', function(){
         cy.get('button')
         .should('contain','Search')
+
+        cy.screenshot()
     })
 
     it('Check booking options are available', function() {
@@ -26,6 +28,8 @@ describe('PHPTRAVELS Test', function() {
             cy.get('span').should('contain', 'Cars')
         })
 
+        cy.screenshot()
+
     })
 
     it('Check when clicking Hotels the form is available', function() {
@@ -35,6 +39,8 @@ describe('PHPTRAVELS Test', function() {
         cy.get('input[placeholder="Check in"]').should('exist')
         cy.get('input[placeholder="Check out"]').should('exist')
         cy.get('#travellersInput').should('exist')
+
+        cy.screenshot()
 
     })
     })
