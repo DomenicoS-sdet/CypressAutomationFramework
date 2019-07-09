@@ -32,6 +32,10 @@ describe('PHPTRAVELS Test', function() {
         cy.get('a[title="Hotels"]').click()
 
         cy.get('input[autocomplete="off"]').should('exist')
+        cy.get('input[placeholder="Check in"]').should('exist')
+        cy.get('input[placeholder="Check out"]').should('exist')
+        cy.get('#travellersInput').should('exist')
+
     })
     })
 })
