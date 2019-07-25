@@ -5,33 +5,22 @@ export class HomePage  {
     constructor() {
         this.uri = 'https://www.phptravels.net/'
         this.pageTitle = 'PHPTRAVELS | Travel Technology Partner'
+    } 
+
+    flightBtn() {
+        return cy.document().get('a[title="Flights"]');
     }
 
-    getHotelBtn() {
-    const hotels = cy.document().get('a[title="Hotels"]').within(($a) => {
-        cy.get('span')});
-    return hotels;
-    }
-    
-    getFlightsBtn() {
-        
-    const flights = cy.document().get('a[title="Flights"]').within(($a) => {
-        cy.get('span')});
-
-    return flights;
-    }
-    
-    getToursBtn() {
-    const tours = cy.document().get('a[title="Tours"]').within(($a) => {
-        cy.get('span')});
-
-    return tours;
+    hotelBtn() {
+        return cy.document().get('a[title="Hotels"]');
     }
 
-    getCarsBtn() {
-    const cars = cy.document().get('a[title="Cars"]').within(($a) => {
-        cy.get('span')});
-    return cars;
+    toursBtn() {
+        return cy.document().get('a[title="Tours"]');
+    }
+
+    carsBtn() {
+        return cy.document().get('a[title="Cars"]');
     }
 
     goTo() {

@@ -16,37 +16,24 @@ describe('PHPTRAVELS Test', function() {
         cy.screenshot()
     }) 
 
-    it('Check HOTEL booking options are available', function() {
+    it('Check booking options are available', function() {
         const page = new HomePage();
-        const hotels = page.getHotelBtn();
-        hotels.should('contain', 'Hotels')
-    })
 
-    it('Check FLIGHTS booking options are available', function() {
-        const page = new HomePage();
-        const flights = page.getFlightsBtn();
-        flights.should('contain', 'Flights');
+        page.flightBtn().within(($a) => {
+            cy.get('span').should('contain', 'Flights')});
+
+        page.hotelBtn().within(($a) => {
+            cy.get('span').should('contain', 'Hotels')});
+
+        page.toursBtn().within(($a) => {
+            cy.get('span').should('contain', 'Tours')});
+
+       page.carsBtn().within(($a) => {
+            cy.get('span').should('contain', 'Cars')});
 
         cy.screenshot()
     })
 
-    it('Check TOURS booking options are available', function() {
-        const page = new HomePage();
-        const tours = page.getToursBtn();
-        tours.should('contain', 'Tours');
-
-        cy.screenshot()
-    })
-
-    it('Check CARS booking options are available', function() {
-        const page = new HomePage();
-        const cars = page.getCarsBtn();
-        cars.should('contain', 'Cars');
-
-        cy.screenshot()
-    })
-
-    //TODO: transform below using the page object
     it('Check when clicking Hotels the form is available', function() {
         cy.get('a[title="Hotels"]').click()
 
