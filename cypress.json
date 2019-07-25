@@ -1,3 +1,4 @@
 {
-  "projectId": "eabhfq"
+  "projectId": "eabhfq",
+  "pageLoadTimeout": 90000
 }

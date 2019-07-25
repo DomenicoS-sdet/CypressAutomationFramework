@@ -1,37 +1,52 @@
+import {HomePage} from '../PageObjects/HomePage';
 /// <reference types="Cypress" />
 describe('PHPTRAVELS Test', function() {
-
+    
     context('PHPTRAVELS', () => {
         beforeEach(() => {
-          cy.visit('https://www.phptravels.net/')
+          const page = new HomePage();
+          page.goTo();           
         })
 
     //Test if the page contains the Search button
-    it('Search Button available', function(){
-        cy.get('button')
-        .should('contain','Search')
+     it('Search Button available', function(){
+        const page = new HomePage();
+        page.isHomePageReady();
+
+        cy.screenshot()
+    }) 
+
+    it('Check HOTEL booking options are available', function() {
+        const page = new HomePage();
+        const hotels = page.getHotelBtn();
+        hotels.should('contain', 'Hotels')
+    })
+
+    it('Check FLIGHTS booking options are available', function() {
+        const page = new HomePage();
+        const flights = page.getFlightsBtn();
+        flights.should('contain', 'Flights');
 
         cy.screenshot()
     })
 
-    it('Check booking options are available', function() {
-       cy.get('a[title="Hotels"]').within(() => {
-            cy.get('span').should('contain', 'Hotels')
-       })
-       cy.get('a[title="Flights"]').within(() => {
-            cy.get('span').should('contain', 'Flights')
-        })
-        cy.get('a[title="Tours"]').within(() => {
-            cy.get('span').should('contain', 'Tours')
-        })
-        cy.get('a[title="Cars"]').within(() => {
-            cy.get('span').should('contain', 'Cars')
-        })
+    it('Check TOURS booking options are available', function() {
+        const page = new HomePage();
+        const tours = page.getToursBtn();
+        tours.should('contain', 'Tours');
 
         cy.screenshot()
-
     })
 
+    it('Check CARS booking options are available', function() {
+        const page = new HomePage();
+        const cars = page.getCarsBtn();
+        cars.should('contain', 'Cars');
+
+        cy.screenshot()
+    })
+
+    //TODO: transform below using the page object
     it('Check when clicking Hotels the form is available', function() {
         cy.get('a[title="Hotels"]').click()
 
@@ -43,5 +58,8 @@ describe('PHPTRAVELS Test', function() {
         cy.screenshot()
 
     })
+
+    //TODO: Add test to fill hotel booking using json file to retrieve informations
+
     })
 })
