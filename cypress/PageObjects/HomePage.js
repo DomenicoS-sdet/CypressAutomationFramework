@@ -23,6 +23,22 @@ export class HomePage  {
         return cy.document().get('a[title="Cars"]');
     }
 
+    citySearchField() {
+        return cy.xpath('span[text()="Search by Hotel or City Name"]/parent::a/parent::div//input')
+    }
+
+    checkInField() {
+        return cy.get('input[placeholder="Check in');
+    }
+
+    checkOutField() {
+        return cy.get('input[placeholder="Check out"]');
+    }
+
+    travellersInput() {
+        return cy.get('#travellersInput');
+    }
+
     goTo() {
         cy.visit(this.uri)
     }

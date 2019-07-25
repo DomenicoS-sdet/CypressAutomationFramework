@@ -35,12 +35,16 @@ describe('PHPTRAVELS Test', function() {
     })
 
     it('Check when clicking Hotels the form is available', function() {
-        cy.get('a[title="Hotels"]').click()
+        const page = new HomePage();
 
-        cy.get('input[autocomplete="off"]').should('exist')
-        cy.get('input[placeholder="Check in"]').should('exist')
-        cy.get('input[placeholder="Check out"]').should('exist')
-        cy.get('#travellersInput').should('exist')
+        page.hotelBtn().click()
+
+        page.checkInField().should('exist')
+        page.checkOutField().should('exist')
+        page.travellersInput().should('exist')
+        //TODO: to fix this last statement
+        page.citySearchField().should('exist')
+        
 
         cy.screenshot()
 
