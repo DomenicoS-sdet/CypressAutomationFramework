@@ -49,7 +49,5 @@ describe('PHPTRAVELS Test', function() {
 
     })
 
-    //TODO: Add test to fill hotel booking using json file to retrieve informations
-
     })
 })
