@@ -9,12 +9,12 @@ describe('PHPTRAVELS Test', function() {
         })
 
     //Test if the page contains the Search button
-     it('Search Button available', function(){
+    it('Search Button available', function(){
         const page = new HomePage();
         page.isHomePageReady();
 
         cy.screenshot()
-    }) 
+    })  
 
     it('Check booking options are available', function() {
         const page = new HomePage();
@@ -32,7 +32,7 @@ describe('PHPTRAVELS Test', function() {
             cy.get('span').should('contain', 'Cars')});
 
         cy.screenshot()
-    })
+    }) 
 
     it('Check when clicking Hotels the form is available', function() {
         const page = new HomePage();
@@ -42,7 +42,6 @@ describe('PHPTRAVELS Test', function() {
         page.checkInField().should('exist')
         page.checkOutField().should('exist')
         page.travellersInput().should('exist')
-        //TODO: to fix this last statement
         page.citySearchField().should('exist')
         
 

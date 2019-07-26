@@ -24,7 +24,9 @@ export class HomePage  {
     }
 
     citySearchField() {
-        return cy.xpath('span[text()="Search by Hotel or City Name"]/parent::a/parent::div//input')
+        return cy.contains('Search by Hotel or City Name')
+        .parent('div')
+        .within(($div) => {cy.get('input')});
     }
 
     checkInField() {
